@@ -1,0 +1,1 @@
+Simple BGG API JSON serverless API

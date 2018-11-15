@@ -1,7 +1,11 @@
 {
-  "name": "bgg-api-json",
+  "name": "BGG-api-json",
   "version": "1.0.0",
   "description": "BGG API JSON wrapper on serverless",
   "author": "Miha Zelnik <miha.zelnik@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-domain-manager": "^2.6.6",
+    "serverless-python-requirements": "^4.2.5"
+  }
 }

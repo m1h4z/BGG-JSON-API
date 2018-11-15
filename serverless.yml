@@ -1,17 +1,35 @@
-service: bgg-api-json
+service: BGG-api-json
 
 frameworkVersion: ">=1.2.0 <2.0.0"
 
 provider:
   name: aws
   runtime: python3.6
-  region: eu-west-1
+  region: us-east-1
   logRetentionInDays: 1
 
 functions:
-  pingPong:
-    handler: handler.pong
+  boardgames:
+    handler: handler.boardgames
     events:
       - http:
-          path: ping
+          path: boardgames/{id}/
           method: get
+
+  boardgameexpansions:
+    handler: handler.boardgameexpansions
+    events:
+      - http:
+          path: boardgameexpansions/{id}/
+          method: get
+plugins:
+  - serverless-python-requirements
+  - serverless-domain-manager
+
+
+custom:
+  customDomain:
+    domainName: bgg.boardgamelibrary.xyz
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true
