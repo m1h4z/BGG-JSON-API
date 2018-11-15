@@ -1,0 +1,17 @@
+service: bgg-api-json
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: eu-west-1
+  logRetentionInDays: 1
+
+functions:
+  pingPong:
+    handler: handler.pong
+    events:
+      - http:
+          path: ping
+          method: get
